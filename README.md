@@ -59,7 +59,7 @@ We also need to add some entries to the scripts in our `package.json`.
 
 `package.json`
 
-```bash
+```json
 "scripts": {
 "typeorm": "ts-node ./node_modules/typeorm/cli",
 "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./typeOrm.config.ts",
