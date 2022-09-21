@@ -63,8 +63,7 @@ We also need to add some entries to the scripts in our `package.json`.
 "scripts": {
 "typeorm": "ts-node ./node_modules/typeorm/cli",
 "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./typeOrm.config.ts",
-"typeorm:generate-migration": "npm run typeorm -- -d ./typeOrm.config.ts migration:generate
-./migrations/$npm_config_name",
+"typeorm:generate-migration": "npm run typeorm -- -d ./typeOrm.config.ts migration:generate ./migrations/$npm_config_name",
 "typeorm:create-migration": "npm run typeorm -- migration:create ./migrations/$npm_config_name",
 "typeorm:revert-migration": "npm run typeorm -- -d ./typeOrm.config.ts migration:revert",
 ...
