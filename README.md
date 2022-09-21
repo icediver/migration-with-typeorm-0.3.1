@@ -59,7 +59,7 @@ We also need to add some entries to the scripts in our `package.json`.
 
 `package.json`
 
-```
+```bash
 "scripts": {
 "typeorm": "ts-node ./node_modules/typeorm/cli",
 "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./typeOrm.config.ts",
@@ -79,7 +79,7 @@ Let’s define a straightforward entity of a post.
 
 `post.entity.ts`
 
-```
+```bash
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -107,7 +107,7 @@ database configuration.
 
 `database.module.ts`
 
-```
+```bash
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -145,7 +145,7 @@ Because of the above, we need to manually add the `PostEntity` to our `entities`
 
 `typeOrm.config.ts`
 
-```
+```bash
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
@@ -185,7 +185,7 @@ command.
 
 `1658694616973-CreatePost.ts`
 
-```
+```bash
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreatePost1658694616973 implements MigrationInterface {
@@ -220,7 +220,7 @@ migration classes manually](https://github.com/typeorm/typeorm/issues/8762).
 
 `typeOrm.config.ts`
 
-```
+```bash
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
@@ -249,7 +249,7 @@ Once we have the `migration` added to the migrations array, we can run the comma
 
 The above command yields the following logs:
 
-```
+```bash
 query: SELECT * FROM current_schema()
 query: SHOW server_version;
 query: SELECT * FROM "information_schema"."tables" WHERE "table_schema" = 'public' AND "table_name" = 'migrations'
@@ -280,7 +280,7 @@ To revert a migration, we need to use the migration:revert command.
 
 The above command produces the following logs:
 
-```
+```bash
 query: SELECT * FROM current_schema()
 query: SHOW server_version;
 query: SELECT * FROM "information_schema"."tables" WHERE "table_schema" = 'public' AND "table_name" = 'migrations'
@@ -308,7 +308,7 @@ slight change to the `PostEntity`.
 
 `post.entity.ts`
 
-```
+```bash
 import {
 Column,
 CreateDateColumn,
@@ -347,7 +347,7 @@ By doing the above, we end up with the following file:
 
 `1658701645714-PostCreationDate.ts`
 
-```
+```bash
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class PostCreationDate1658701645714 implements MigrationInterface {
@@ -366,7 +366,7 @@ also [use the migration API](https://github.com/typeorm/typeorm/blob/master/docs
 
 `1658701645714-PostCreationDate.ts`
 
-```
+```bash
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
 export class PostCreationDate1658701645714 implements MigrationInterface {
@@ -390,7 +390,7 @@ To run our migration, we also need to add it to the `migrations` array.
 
 `typeOrm.config.ts`
 
-```
+```bash
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
